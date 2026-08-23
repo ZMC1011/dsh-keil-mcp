@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+build/
+dist/
+wheels/
+*.egg
+.mypy_cache/
+.ruff_cache/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime artifacts (keil-mcp)
+.keil-mcp-backups/
+.keil-mcp-locks/
+.keil-mcp-ini/
+*.log
+.pytest_cache/
+
+# Scratch / smoke-test outputs
+func_out*.txt
+func_err.txt
+req.txt
+out.txt
+err.txt
+dump-config*.txt
+scratch_test.c

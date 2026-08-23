@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keil-mcp-server"
+version = "0.1.0"
+description = "MCP server for Keil MDK: AI-driven compile -> flash -> debug closed loop for STM32"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "keil-mcp-server contributors" },
+]
+keywords = [
+    "mcp", "model-context-protocol", "keil", "uv4", "stm32",
+    "embedded", "mcu", "debugging", "pyocd", "st-link", "ai-assisted-development",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Embedded Systems",
+]
+dependencies = [
+    "mcp>=1.26.0,<2.0.0",
+    "pydantic>=2.0",
+    "PyYAML>=6.0",
+    "filelock>=3.12",
+    "watchdog>=3.0",
+    "pyelftools>=0.29",
+    "pyserial>=3.5",
+    "cmsis-svd>=0.4",
+    "pyocd>=0.36",
+]
+
+[project.optional-dependencies]
+jlink = ["pylink-square>=0.15"]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/ZMC1011/dsh-keil-mcp"
+Repository = "https://github.com/ZMC1011/dsh-keil-mcp"
+Documentation = "https://github.com/ZMC1011/dsh-keil-mcp#readme"
+
+[tool.setuptools.packages.find]
+include = ["keil_mcp_server*"]
+
+[tool.setuptools.package-data]
+"keil_mcp_server" = ["config.yaml"]

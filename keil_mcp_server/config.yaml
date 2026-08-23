@@ -1,0 +1,30 @@
+# Keil MCP Server configuration (blueprint §8)
+keil:
+  uv4_path: "D:/002_software/Keil5/UV4/UV4.exe"
+  default_project_dir: ""
+
+debug:
+  default_backend: "pyocd"            # pyocd | jlink | probe-rs
+  default_interface: "swd"
+  uv4_debug_ini_dir: ".keil-mcp-ini"
+
+build:
+  build_timeout: 300
+  stream_progress: true
+  progress_mode: "tail"
+  tail_flush_wait: 3                  # UV4 退出后等待尾部冲刷（秒）
+
+error:
+  parser: "uv4"
+  max_errors: 200
+
+source:
+  backup_dir: ".keil-mcp-backups"
+  allow_paths: []                     # 空 = 项目目录
+
+probe_lease:
+  lock_dir: ".keil-mcp-locks"
+
+server:
+  transport: "stdio"
+  log_level: "INFO"
