@@ -8,7 +8,7 @@
 
 [English](README.md) | **中文**
 
-一个基于 [Model Context Protocol (MCP)](https://modelcontextprotocol.io) 的服务器，让 AI 编程智能体在 STM32 开发中（配合 Keil MDK）完成 **编译 → 烧录 → 调试 → 读反馈 → 改码** 的自动化闭环。
+一个基于 [Model Context Protocol (MCP)](https://modelcontextprotocol.io) 的服务器，让 deepseek harness 智能体在 STM32 开发中（配合 Keil MDK）完成 **修改代码 → 编译 → 烧录 → 调试 → 读反馈 → 重新修改代码** 的自动化闭环。
 
 无需在 IDE、烧录器和终端之间手动切换，智能体可以：
 
@@ -380,7 +380,7 @@ python tests/func_test.py        # 通过 MCP 客户端 SDK 的端到端工具�
 
 ## 贡献指南
 
-欢迎贡献！请先开 issue 讨论改动，再提交 PR。参见 [CONTRIBUTING.md](CONTRIBUTING.md)（尚未创建——欢迎 PR 补充）。
+欢迎贡献！请先开 issue 讨论改动，再提交 PR。
 
 ## 许可证
 
