@@ -8,7 +8,7 @@
 
 **English** | [中文](README.zh-CN.md)
 
-A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that gives AI coding agents a **compile → flash → debug → read feedback → fix code** closed loop for STM32 development with Keil MDK.
+A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that gives deepseek harness a **edit code → flash → debug → read feedback → fix code** closed loop for STM32 development with Keil MDK.
 
 Instead of manually switching between the IDE, the programmer and the terminal, an agent can:
 
@@ -380,7 +380,7 @@ python tests/func_test.py        # end-to-end tool calls through the MCP client 
 
 ## Contributing
 
-Contributions are welcome! Please open an issue first to discuss changes, then submit a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. (Not yet created — PRs to add it are welcome too.)
+Contributions are welcome! Please open an issue first to discuss changes, then submit a PR. 
 
 ## License
 
