@@ -10,7 +10,7 @@
 
 一个基于 [Model Context Protocol (MCP)](https://modelcontextprotocol.io) 的服务器，让 deepseek harness 智能体在 STM32 开发中（配合 Keil MDK）完成 **修改代码 → 编译 → 烧录 → 调试 → 读反馈 → 重新修改代码** 的自动化闭环。
 
-无需在 IDE 等工具，可以直接通过与 deepseek harness 智能体对话，驱动智能体完成以下工作：
+无需手动操作 IDE 等工具，可以直接通过与 deepseek harness 智能体对话，驱动智能体完成以下工作：
 
 1. 编译 Keil 工程并观察**实时编译进度**
 2. 从 UV4 日志中获取**结构化错误**（文件 / 行 / 列 / 错误码 / 信息）
