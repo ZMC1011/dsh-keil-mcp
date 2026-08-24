@@ -71,7 +71,7 @@ Instead of manually switching between the IDE, the programmer and the terminal, 
 | Component | Version / Notes |
 |---|---|
 | Python | **3.10+** (tested on 3.12) |
-| Keil MDK | `UV4.exe` (build `-b`, flash `-f`, debug `-d`) — optional but required for build/flash tools |
+| Keil MDK | `UV4.exe` |
 | pyOCD | installed automatically via pip; needs a probe driver (ST-Link / J-Link / CMSIS-DAP) |
 | Probe | ST-Link V2/V3, J-Link, CMSIS-DAP, Keil ULINKplus |
 | Target pack | e.g. `pyocd pack install stm32f103c8` or reuse the Keil DFP |
