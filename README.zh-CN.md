@@ -10,7 +10,7 @@
 
 一个基于 [Model Context Protocol (MCP)](https://modelcontextprotocol.io) 的服务器，让 deepseek harness 智能体在 STM32 开发中（配合 Keil MDK）完成 **修改代码 → 编译 → 烧录 → 调试 → 读反馈 → 重新修改代码** 的自动化闭环。
 
-无需在 IDE、烧录器和终端之间手动切换，智能体可以：
+无需在 IDE 等工具，可以直接通过与 deepseek harness 智能体对话，驱动智能体完成以下工作：
 
 1. 编译 Keil 工程并观察**实时编译进度**
 2. 从 UV4 日志中获取**结构化错误**（文件 / 行 / 列 / 错误码 / 信息）
@@ -64,13 +64,12 @@
 - **硬件调试**：pyOCD 探针控制（连接 / 暂停 / 恢复 / 单步 / 断点 / 寄存器 / 内存 / RTT）
 - **探针租约**：每探针独占访问（asyncio 锁 + 文件锁），避免 UV4 与 pyOCD 争抢调试口
 - **执行边界**：只读工具并发执行；写工具在会话锁上串行；`asyncio.shield` 防取消
-- **无 Keil 也能启动**：`keil_doctor` 清晰报告缺失组件，服务器仍可正常运行
 
 ## 环境要求
 
 | 组件 | 版本 / 说明 |
 |---|---|
-| Python | **3.10+**（已在 3.12 上测试） |
+| Python | **3.10+** |
 | Keil MDK | `UV4.exe` |
 | pyOCD | 随 pip 自动安装；需要探针驱动（ST-Link / J-Link / CMSIS-DAP） |
 | 探针 | ST-Link V2/V3、J-Link、CMSIS-DAP、Keil ULINKplus |
@@ -131,7 +130,7 @@ python -m keil_mcp_server
 
 ### DeepSeek Harness (DSH)
 
-按照 [DSH 官方 MCP 文档](https://deepseekdocs.com/docs/features/mcp)：**一个插件实例 = 一个 MCP 服务器**，通过官方桥接插件 `@deepseek-ai/dsh-mcp-client` 接入。在 profile 的 `cordis.patch.yml`（或 `cordis.yml`）中添加：
+按照 [DSH 官方 MCP 文档](https://deepseekdocs.com/docs/features/mcp)：通过官方桥接插件 `@deepseek-ai/dsh-mcp-client` 接入。在 profile 的 `cordis.patch.yml`（或 `cordis.yml`）中添加：
 
 ```yaml
 - insert:
@@ -157,24 +156,9 @@ dsh web --dump-config | grep -A3 mcp
 
 > 注意：serverName 必须匹配 `[A-Za-z0-9_-]{1,32}`，且在存活实例中唯一。
 
-### Claude Desktop / 其他 stdio MCP 客户端
+### 其他 agent 的 MCP 有待开发。
 
-多数 MCP 客户端使用 `mcpServers` JSON 约定：
 
-```json
-{
-  "mcpServers": {
-    "keil": {
-      "command": "D:/000_Environment/mcp-servers/ds-keil-mcp/.venv/Scripts/python.exe",
-      "args": ["-m", "keil_mcp_server"],
-      "env": {
-        "KEIL_UV4_PATH": "D:/002_software/Keil5/UV4/UV4.exe",
-        "KEIL_PROJECT_DIR": "D:/STM32Projects"
-      }
-    }
-  }
-}
-```
 
 源码检出（无 venv）也可以用 `uv`：
 
