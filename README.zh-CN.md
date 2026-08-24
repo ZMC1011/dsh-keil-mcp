@@ -158,8 +158,7 @@ dsh web --dump-config | grep -A3 mcp
 
 ### 其他 agent 的 MCP 有待开发。
 
-
-
+### 注：
 源码检出（无 venv）也可以用 `uv`：
 
 ```json
