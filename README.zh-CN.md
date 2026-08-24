@@ -71,7 +71,7 @@
 | 组件 | 版本 / 说明 |
 |---|---|
 | Python | **3.10+**（已在 3.12 上测试） |
-| Keil MDK | `UV4.exe`（编译 `-b`、烧录 `-f`、调试 `-d`）——可选，但编译/烧录工具需要 |
+| Keil MDK | `UV4.exe` |
 | pyOCD | 随 pip 自动安装；需要探针驱动（ST-Link / J-Link / CMSIS-DAP） |
 | 探针 | ST-Link V2/V3、J-Link、CMSIS-DAP、Keil ULINKplus |
 | 目标芯片包 | 如 `pyocd pack install stm32f103c8`，或复用 Keil DFP |
